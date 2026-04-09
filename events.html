@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | Elevate Youth Foundation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .event-date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(201,168,76,0.1);
+      color: #9a7a1a;
+      border: 1px solid #C9A84C;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .event-tag {
+      display: inline-block;
+      background: #e8f4f0;
+      color: var(--primary);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" fill="#0F4C3A" stroke="#C9A84C" stroke-width="2"/>
+          <path d="M20 8 C20 8 10 14 10 22 C10 28 14.5 32 20 32 C25.5 32 30 28 30 22 C30 14 20 8 20 8Z" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <circle cx="20" cy="22" r="5" fill="#C9A84C"/>
+          <line x1="20" y1="8" x2="20" y2="17" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg>
+        Elevate<span>Youth</span>
+      </a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="shop.html">Shop</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-icon">🛒<span class="cart-count" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <section class="page-header">
+      <div class="container">
+        <a href="index.html" class="btn btn-outline-white btn-home">← Return to Home</a>
+        <h1>Upcoming Events</h1>
+        <p>Every event is an opportunity to change a life. Find one near you and show up for children who need you most.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-3">
+
+          <!-- Event 1: Winter Clothing Drive -->
+          <div class="card slide-left">
+            <div class="card-img-placeholder">🧥</div>
+            <div class="card-content">
+              <span class="event-tag">Drive</span>
+              <div class="event-date-badge">📅 November 15, 2026</div>
+              <h3>Winter Clothing Drive</h3>
+              <p>Distributing warm winter clothes, blankets, and woollens to street children and families in need across the city. Help us keep them warm this season.</p>
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
+                <a href="volunteer.html" class="btn btn-primary" style="flex:1;">Join as Volunteer</a>
+                <a href="donate.html" class="btn btn-outline" style="flex:1;">Sponsor</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2: STEM Workshop -->
+          <div class="card fade-up delay-1">
+            <div class="card-img-placeholder">🔬</div>
+            <div class="card-content">
+              <span class="event-tag">Workshop</span>
+              <div class="event-date-badge">📅 November 28, 2026</div>
+              <h3>Youth STEM Workshop</h3>
+              <p>A hands-on science, technology, engineering, and maths workshop designed to ignite curiosity and digital literacy in students from underprivileged backgrounds.</p>
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
+                <a href="donate.html" class="btn btn-primary" style="flex:1;">Sponsor a Student</a>
+                <a href="volunteer.html" class="btn btn-outline" style="flex:1;">Teach</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3: Nutritional Support Program -->
+          <div class="card slide-right delay-2">
+            <div class="card-img-placeholder">🥗</div>
+            <div class="card-content">
+              <span class="event-tag">Nutrition</span>
+              <div class="event-date-badge">📅 December 5, 2026</div>
+              <h3>Nutritional Support Program</h3>
+              <p>Monthly programme providing nutritious mid-day meals and health education to 500+ disadvantaged families — because learning cannot happen on an empty stomach.</p>
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
+                <a href="volunteer.html" class="btn btn-primary" style="flex:1;">Join Us</a>
+                <a href="donate.html" class="btn btn-outline" style="flex:1;">Donate Food</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 4: Community Food Run -->
+          <div class="card slide-left">
+            <div class="card-img-placeholder">🍱</div>
+            <div class="card-content">
+              <span class="event-tag">Food Run</span>
+              <div class="event-date-badge">📅 December 12, 2026</div>
+              <h3>Community Food Run</h3>
+              <p>Weekly food distribution run delivering fresh, home-cooked meals to 200+ elderly residents and vulnerable children in urban outskirts.</p>
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
+                <a href="volunteer.html" class="btn btn-primary" style="flex:1;">Volunteer</a>
+                <a href="donate.html" class="btn btn-outline" style="flex:1;">Contribute</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 5: Scholarship Award Night -->
+          <div class="card fade-up delay-1">
+            <div class="card-img-placeholder">🎓</div>
+            <div class="card-content">
+              <span class="event-tag">Ceremony</span>
+              <div class="event-date-badge">📅 January 10, 2027</div>
+              <h3>Annual Scholarship Night</h3>
+              <p>A celebratory evening honouring our top-performing scholarship students. Join us as we award 40 full-year educational grants to deserving young scholars.</p>
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
+                <a href="donate.html" class="btn btn-primary" style="flex:1;">Fund a Scholar</a>
+                <a href="contact.html" class="btn btn-outline" style="flex:1;">RSVP</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 6: Mental Wellness Camp -->
+          <div class="card slide-right delay-2">
+            <div class="card-img-placeholder">🧘</div>
+            <div class="card-content">
+              <span class="event-tag">Wellness</span>
+              <div class="event-date-badge">📅 January 25, 2027</div>
+              <h3>Youth Mental Wellness Camp</h3>
+              <p>A 2-day residential camp blending mindfulness, art therapy, and career mentorship for adolescents facing mental health challenges due to poverty stress.</p>
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
+                <a href="volunteer.html" class="btn btn-primary" style="flex:1;">Volunteer</a>
+                <a href="donate.html" class="btn btn-outline" style="flex:1;">Sponsor</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>Elevate Youth Foundation</h3>
+      <p>Empowering children. Building resilience. Delivering hope.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a><a href="shop.html">Shop</a><a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a><a href="un-info.html">UN Goals</a><a href="partners.html">Partners</a>
+      </div>
+      <hr class="footer-divider">
+      <p>&copy; 2026 Elevate Youth Foundation. All rights reserved.</p>
+      <p class="footer-credit">Michael Benjamin Nolan &nbsp;|&nbsp; CH.SC.U4CSE25028 &nbsp;|&nbsp; Amrita Vishwa Vidyapeetham</p>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

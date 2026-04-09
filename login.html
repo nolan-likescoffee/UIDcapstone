@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Elevate Youth Foundation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" fill="#0F4C3A" stroke="#C9A84C" stroke-width="2"/>
+          <path d="M20 8 C20 8 10 14 10 22 C10 28 14.5 32 20 32 C25.5 32 30 28 30 22 C30 14 20 8 20 8Z" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <circle cx="20" cy="22" r="5" fill="#C9A84C"/>
+          <line x1="20" y1="8" x2="20" y2="17" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg>
+        Elevate<span>Youth</span>
+      </a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="shop.html">Shop</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-icon">🛒<span class="cart-count" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <section class="page-header">
+      <div class="container">
+        <a href="javascript:history.back()" class="btn btn-outline-white btn-home">← Go Back</a>
+        <h1>Welcome Back</h1>
+        <p>Log in to your account to shop, donate, and track your impact.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="auth-wrap fade-up">
+
+          <div class="auth-tabs">
+            <div class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Sign In</div>
+            <div class="auth-tab" id="tabSignup" onclick="switchTab('signup')">Create Account</div>
+          </div>
+
+          <!-- Login Form -->
+          <div id="loginPanel">
+            <form id="loginForm" novalidate>
+              <div class="form-group">
+                <label for="lEmail">Email Address <span style="color:#e74c3c;">*</span></label>
+                <input type="email" id="lEmail" class="form-control" placeholder="you@example.com" autocomplete="email">
+                <div class="error-msg" id="errLEmail">Please enter a valid email address.</div>
+              </div>
+              <div class="form-group">
+                <label for="lPassword">Password <span style="color:#e74c3c;">*</span></label>
+                <input type="password" id="lPassword" class="form-control" placeholder="••••••••" autocomplete="current-password">
+                <div class="error-msg" id="errLPassword">Password must be at least 6 characters.</div>
+              </div>
+              <div style="text-align:right; margin-bottom:1.5rem;">
+                <a href="#" style="font-size:0.85rem; color:var(--primary);">Forgot password?</a>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;">Sign In →</button>
+              <div style="text-align:center; margin-top:1.5rem; font-size:0.88rem; color:var(--light);">
+                <strong>Demo:</strong> Any email + any password (6+ chars) works!
+              </div>
+            </form>
+          </div>
+
+          <!-- Sign Up Form -->
+          <div id="signupPanel" style="display:none;">
+            <form id="signupForm" novalidate>
+              <div class="form-group">
+                <label for="sName">Full Name <span style="color:#e74c3c;">*</span></label>
+                <input type="text" id="sName" class="form-control" placeholder="Priya Sharma" autocomplete="name">
+                <div class="error-msg" id="errSName">Please enter your full name.</div>
+              </div>
+              <div class="form-group">
+                <label for="sEmail">Email Address <span style="color:#e74c3c;">*</span></label>
+                <input type="email" id="sEmail" class="form-control" placeholder="you@example.com" autocomplete="email">
+                <div class="error-msg" id="errSEmail">Please enter a valid email address.</div>
+              </div>
+              <div class="form-group">
+                <label for="sPassword">Password <span style="color:#e74c3c;">*</span></label>
+                <input type="password" id="sPassword" class="form-control" placeholder="Min. 8 characters" autocomplete="new-password">
+                <div class="error-msg" id="errSPassword">Password must be at least 8 characters.</div>
+              </div>
+              <div class="form-group">
+                <label for="sConfirm">Confirm Password <span style="color:#e74c3c;">*</span></label>
+                <input type="password" id="sConfirm" class="form-control" placeholder="Repeat your password" autocomplete="new-password">
+                <div class="error-msg" id="errSConfirm">Passwords do not match.</div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;">Create Account →</button>
+            </form>
+          </div>
+
+          <!-- Social proof -->
+          <div style="text-align:center; margin-top:2rem; padding-top:1.5rem; border-top:1px solid #eee;">
+            <p style="font-size:0.82rem; color:var(--light);">🔒 Your data is protected and never shared with third parties.</p>
+            <p style="font-size:0.82rem; color:var(--light);">Joined by 10,000+ supporters of Elevate Youth.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>Elevate Youth Foundation</h3>
+      <p>Empowering children. Building resilience. Delivering hope.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a><a href="shop.html">Shop</a><a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a><a href="un-info.html">UN Goals</a><a href="partners.html">Partners</a>
+      </div>
+      <hr class="footer-divider">
+      <p>&copy; 2026 Elevate Youth Foundation. All rights reserved.</p>
+      <p class="footer-credit">Michael Benjamin Nolan &nbsp;|&nbsp; CH.SC.U4CSE25028 &nbsp;|&nbsp; Amrita Vishwa Vidyapeetham</p>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+  <script>
+    function switchTab(tab) {
+      const isLogin = tab === 'login';
+      document.getElementById('tabLogin').classList.toggle('active', isLogin);
+      document.getElementById('tabSignup').classList.toggle('active', !isLogin);
+      document.getElementById('loginPanel').style.display  = isLogin ? 'block' : 'none';
+      document.getElementById('signupPanel').style.display = isLogin ? 'none'  : 'block';
+      // Clear errors
+      document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+      document.querySelectorAll('.form-control').forEach(el => el.classList.remove('error-field'));
+    }
+
+    /* ── Login ── */
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+      document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+
+      const email = document.getElementById('lEmail').value.trim();
+      const pass  = document.getElementById('lPassword').value;
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('lEmail').classList.add('error-field');
+        document.getElementById('errLEmail').classList.add('show');
+        valid = false;
+      }
+      if (pass.length < 6) {
+        document.getElementById('lPassword').classList.add('error-field');
+        document.getElementById('errLPassword').classList.add('show');
+        valid = false;
+      }
+
+      if (valid) {
+        localStorage.setItem('ey_loggedIn', 'true');
+        localStorage.setItem('ey_user', email);
+        showToast('✅ Logged in successfully! Welcome back!');
+        setTimeout(() => {
+          const ref = document.referrer;
+          window.location.href = (ref && !ref.includes('login')) ? ref : 'index.html';
+        }, 1200);
+      }
+    });
+
+    /* ── Signup ── */
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+      document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+
+      const name = document.getElementById('sName').value.trim();
+      const email = document.getElementById('sEmail').value.trim();
+      const pass  = document.getElementById('sPassword').value;
+      const conf  = document.getElementById('sConfirm').value;
+
+      if (name.length < 2) { document.getElementById('sName').classList.add('error-field'); document.getElementById('errSName').classList.add('show'); valid = false; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('sEmail').classList.add('error-field'); document.getElementById('errSEmail').classList.add('show'); valid = false; }
+      if (pass.length < 8) { document.getElementById('sPassword').classList.add('error-field'); document.getElementById('errSPassword').classList.add('show'); valid = false; }
+      if (pass !== conf)   { document.getElementById('sConfirm').classList.add('error-field'); document.getElementById('errSConfirm').classList.add('show'); valid = false; }
+
+      if (valid) {
+        localStorage.setItem('ey_loggedIn', 'true');
+        localStorage.setItem('ey_user', email);
+        showToast('🎉 Account created! Welcome to Elevate Youth!');
+        setTimeout(() => { window.location.href = 'index.html'; }, 1200);
+      }
+    });
+  </script>
+</body>
+</html>

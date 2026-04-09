@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate | Elevate Youth Foundation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" fill="#0F4C3A" stroke="#C9A84C" stroke-width="2"/>
+          <path d="M20 8 C20 8 10 14 10 22 C10 28 14.5 32 20 32 C25.5 32 30 28 30 22 C30 14 20 8 20 8Z" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <circle cx="20" cy="22" r="5" fill="#C9A84C"/>
+          <line x1="20" y1="8" x2="20" y2="17" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg>
+        Elevate<span>Youth</span>
+      </a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="shop.html">Shop</a>
+        <a href="donate.html" class="active">Donate</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-icon">🛒<span class="cart-count" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <section class="page-header">
+      <div class="container">
+        <a href="index.html" class="btn btn-outline-white btn-home">← Return to Home</a>
+        <h1>Make a Difference Today</h1>
+        <p>Your contribution, big or small, directly transforms the life of a child. Every single rupee counts.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div style="max-width:860px; margin:0 auto;">
+
+          <h2 class="fade-up">Choose Your Impact</h2>
+          <p class="fade-up text-center" style="margin-bottom:2.5rem;">Select a giving level below or enter your own amount.</p>
+
+          <div class="donation-grid fade-up">
+            <div class="donation-card" onclick="selectAmount(this, 250)">
+              <div class="donation-amount">₹250</div>
+              <div class="donation-impact">📏 Provides stationery for one child for a month.</div>
+            </div>
+            <div class="donation-card" onclick="selectAmount(this, 500)">
+              <div class="donation-amount">₹500</div>
+              <div class="donation-impact">📚 Provides school supplies for one child for a month.</div>
+            </div>
+            <div class="donation-card active" onclick="selectAmount(this, 1000)">
+              <div class="donation-amount">₹1,000</div>
+              <div class="donation-impact">🍽️ Provides hot meals for a family for two weeks.</div>
+            </div>
+            <div class="donation-card" onclick="selectAmount(this, 2500)">
+              <div class="donation-amount">₹2,500</div>
+              <div class="donation-impact">💻 Sponsors a full month of coding classes for a student.</div>
+            </div>
+            <div class="donation-card" onclick="selectAmount(this, 5000)">
+              <div class="donation-amount">₹5,000</div>
+              <div class="donation-impact">🎓 Contributes to a full scholarship for one child.</div>
+            </div>
+            <div class="donation-card" onclick="selectAmount(this, 10000)">
+              <div class="donation-amount">₹10,000</div>
+              <div class="donation-impact">🏫 Funds an entire community learning session for 30 children.</div>
+            </div>
+          </div>
+
+          <div style="background:white; padding:2.5rem; border-radius:var(--radius-lg); box-shadow:var(--shadow); text-align:center;" class="fade-up">
+            <p style="font-weight:600; color:var(--mid); margin-bottom:1rem;">Or enter a custom amount:</p>
+            <div style="display:flex; align-items:center; justify-content:center; gap:0.5rem; max-width:280px; margin:0 auto 1.5rem;">
+              <span style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; color:var(--primary);">₹</span>
+              <input type="number" id="customAmount" class="form-control" value="1000" min="1" style="font-size:1.4rem; font-weight:700; text-align:center;" oninput="clearSelection()">
+            </div>
+            <button onclick="proceedDonate()" class="btn btn-accent btn-wide" style="font-size:1.15rem; padding:1rem 3rem;">
+              💛 Donate Now
+            </button>
+            <p style="font-size:0.8rem; margin-top:1rem; color:#aaa;">🔒 Secure payment. Your generosity is protected.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="section section-dark">
+      <div class="container">
+        <h2 class="slide-left">How Your Donation Helps</h2>
+        <div class="grid grid-3 mt-3">
+          <div class="fade-up" style="text-align:center; padding:1.5rem;">
+            <div style="font-size:3rem; margin-bottom:1rem;">📖</div>
+            <h3 style="color:white; font-size:1.3rem;">Education</h3>
+            <p>Tutoring, scholarships, school supplies, and digital learning kits for children who can't afford them.</p>
+          </div>
+          <div class="fade-up delay-1" style="text-align:center; padding:1.5rem;">
+            <div style="font-size:3rem; margin-bottom:1rem;">🥗</div>
+            <h3 style="color:white; font-size:1.3rem;">Nutrition</h3>
+            <p>Balanced daily meals for hungry children so they can focus on learning, not survival.</p>
+          </div>
+          <div class="fade-up delay-2" style="text-align:center; padding:1.5rem;">
+            <div style="font-size:3rem; margin-bottom:1rem;">🧠</div>
+            <h3 style="color:white; font-size:1.3rem;">Wellbeing</h3>
+            <p>Mental health support, wellness camps, and mentorship to build emotionally strong young people.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>Elevate Youth Foundation</h3>
+      <p>Empowering children. Building resilience. Delivering hope.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a><a href="shop.html">Shop</a><a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a><a href="un-info.html">UN Goals</a><a href="partners.html">Partners</a>
+      </div>
+      <hr class="footer-divider">
+      <p>&copy; 2026 Elevate Youth Foundation. All rights reserved.</p>
+      <p class="footer-credit">Michael Benjamin Nolan &nbsp;|&nbsp; CH.SC.U4CSE25028 &nbsp;|&nbsp; Amrita Vishwa Vidyapeetham</p>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+  <script>
+    function selectAmount(el, amount) {
+      document.querySelectorAll('.donation-card').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('customAmount').value = amount;
+    }
+    function clearSelection() {
+      document.querySelectorAll('.donation-card').forEach(c => c.classList.remove('active'));
+    }
+    function proceedDonate() {
+      const amount = parseFloat(document.getElementById('customAmount').value);
+      if (!amount || amount <= 0) { showToast('⚠️ Please enter a valid donation amount.'); return; }
+      // Add donation to cart
+      if (!localStorage.getItem('ey_loggedIn')) {
+        showToast('🔒 Please log in to donate!');
+        setTimeout(() => { window.location.href = 'login.html'; }, 1200);
+        return;
+      }
+      cart.add('item_donation_' + Date.now(), `One-time Donation (₹${amount.toLocaleString('en-IN')})`, amount);
+      showToast('💛 Donation added! Proceeding to checkout...');
+      setTimeout(() => { window.location.href = 'checkout.html'; }, 1200);
+    }
+  </script>
+</body>
+</html>

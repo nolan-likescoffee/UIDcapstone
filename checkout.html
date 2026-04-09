@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Elevate Youth Foundation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .upi-field { display: none; }
+    .upi-field.show { display: block; animation: fadeInDown 0.3s ease; }
+    .card-fields { display: none; }
+    .card-fields.show { display: block; animation: fadeInDown 0.3s ease; }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0);     }
+    }
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .checkout-grid { grid-template-columns: 1fr; }
+    }
+    .section-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" fill="#0F4C3A" stroke="#C9A84C" stroke-width="2"/>
+          <path d="M20 8 C20 8 10 14 10 22 C10 28 14.5 32 20 32 C25.5 32 30 28 30 22 C30 14 20 8 20 8Z" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <circle cx="20" cy="22" r="5" fill="#C9A84C"/>
+          <line x1="20" y1="8" x2="20" y2="17" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg>
+        Elevate<span>Youth</span>
+      </a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="shop.html">Shop</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-icon">🛒<span class="cart-count" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <section class="page-header">
+      <div class="container">
+        <a href="cart.html" class="btn btn-outline-white btn-home">← Back to Cart</a>
+        <h1>Secure Checkout</h1>
+        <p>You're one step away from making a real difference. Thank you for your generosity! 💚</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container fade-up">
+        <div class="checkout-grid">
+
+          <!-- Left: Form -->
+          <div style="background:white; padding:2.5rem; border-radius:var(--radius-lg); box-shadow:var(--shadow);">
+            <form id="checkoutForm" novalidate>
+
+              <!-- Shipping -->
+              <div id="shippingSection">
+              <p class="section-heading">📦 Shipping Information</p>
+              <div class="form-group">
+                <label for="shName">Full Name <span style="color:#e74c3c;">*</span></label>
+                <input type="text" id="shName" class="form-control" placeholder="Priya Sharma" required>
+                <div class="error-msg" id="errShName">Please enter your full name.</div>
+              </div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                <div class="form-group">
+                  <label for="shPhone">Phone <span style="color:#e74c3c;">*</span></label>
+                  <input type="tel" id="shPhone" class="form-control" placeholder="+91 98765 43210" required>
+                  <div class="error-msg" id="errShPhone">Enter a valid phone number.</div>
+                </div>
+                <div class="form-group">
+                  <label for="shPin">PIN Code <span style="color:#e74c3c;">*</span></label>
+                  <input type="text" id="shPin" class="form-control" placeholder="600001" required maxlength="6">
+                  <div class="error-msg" id="errShPin">Enter a valid 6-digit PIN.</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="shAddress">Delivery Address <span style="color:#e74c3c;">*</span></label>
+                <textarea id="shAddress" class="form-control" rows="3" placeholder="Flat / Street / Area, City, State" required></textarea>
+                <div class="error-msg" id="errShAddress">Please enter your delivery address.</div>
+              </div>
+
+              </div><!-- /shippingSection -->
+
+              <!-- Payment Method -->
+              <p class="section-heading" style="margin-top:2rem;">💳 Payment Method</p>
+              <div class="payment-methods" id="paymentMethods">
+                <div class="payment-option" onclick="selectPayment(this,'upi')" data-method="upi">
+                  <span class="pay-icon">📲</span>UPI / QR Code
+                </div>
+                <div class="payment-option" onclick="selectPayment(this,'card')" data-method="card">
+                  <span class="pay-icon">💳</span>Credit / Debit Card
+                </div>
+                <div class="payment-option" onclick="selectPayment(this,'pod')" data-method="pod">
+                  <span class="pay-icon">🏠</span>Pay on Delivery
+                </div>
+              </div>
+              <div class="error-msg" id="errPayment" style="margin-bottom:1rem;">Please select a payment method.</div>
+
+              <!-- UPI Fields -->
+              <div class="upi-field" id="upiFields">
+                <div style="text-align:center; margin-bottom:1.5rem;">
+                  <img src="upi_qr_code.png" alt="Scan to Pay via UPI" style="width:150px; height:150px; border-radius:8px; border:2px solid #ddd; padding:0.5rem; background:white; display:block; margin:0 auto;">
+                </div>
+                <div class="form-group">
+                  <label for="upiId">UPI ID <span style="color:#e74c3c;">*</span></label>
+                  <input type="text" id="upiId" class="form-control" placeholder="yourname@upi">
+                  <div class="error-msg" id="errUpi">Please enter a valid UPI ID (e.g. name@okaxis).</div>
+                </div>
+                <div style="background:#f0f9f5; padding:1rem; border-radius:var(--radius); text-align:center; margin-bottom:1rem;">
+                  <p style="font-size:0.85rem; margin:0; color:var(--primary);">
+                    🔒 Scan QR or enter your UPI ID above. You'll receive a payment request on your UPI app.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card Fields -->
+              <div class="card-fields" id="cardFields">
+                <div class="form-group">
+                  <label for="cCard">Card Number <span style="color:#e74c3c;">*</span></label>
+                  <input type="text" id="cCard" class="form-control" placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
+                  <div class="error-msg" id="errCard">Please enter a valid 16-digit card number.</div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                  <div class="form-group">
+                    <label for="cExp">Expiry (MM/YY) <span style="color:#e74c3c;">*</span></label>
+                    <input type="text" id="cExp" class="form-control" placeholder="12/28" maxlength="5">
+                    <div class="error-msg" id="errExp">Invalid expiry date.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="cCvv">CVV <span style="color:#e74c3c;">*</span></label>
+                    <input type="password" id="cCvv" class="form-control" placeholder="•••" maxlength="4">
+                    <div class="error-msg" id="errCvv">Invalid CVV.</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cName">Name on Card <span style="color:#e74c3c;">*</span></label>
+                  <input type="text" id="cName" class="form-control" placeholder="PRIYA SHARMA">
+                  <div class="error-msg" id="errCName">Please enter the name on your card.</div>
+                </div>
+              </div>
+
+              <!-- Pay on Delivery info -->
+              <div id="podInfo" style="display:none; background:#f0f9f5; padding:1rem; border-radius:var(--radius); margin-bottom:1rem; border-left:4px solid var(--primary);">
+                <p style="color:var(--primary); font-weight:600; margin:0; font-size:0.9rem;">🏠 Pay on Delivery: Our volunteer will collect payment when your order arrives. Cash / UPI accepted at doorstep.</p>
+              </div>
+
+              <!-- Human Verification -->
+              <p class="section-heading" style="margin-top:2rem;">🤖 Human Verification</p>
+              <div style="background:#f9f9f9; padding:1.25rem; border-radius:var(--radius); border:1.5px solid #eee;" class="form-group">
+                <label id="captchaLabel" for="captchaInput">What is 5 + 3?</label>
+                <input type="text" id="captchaInput" class="form-control" placeholder="Enter the answer" style="margin-top:0.5rem;" autocomplete="off">
+                <div class="error-msg" id="errCaptcha">Incorrect answer. Please try again.</div>
+              </div>
+
+              <button type="submit" class="btn btn-accent" style="width:100%; font-size:1.1rem; padding:1rem; margin-top:0.5rem;">
+                Complete Payment &nbsp;<span id="checkoutTotalBtn"></span>
+              </button>
+              <p style="text-align:center; font-size:0.8rem; color:#aaa; margin-top:0.75rem;">🔒 SSL Encrypted. Your details are safe with us.</p>
+
+            </form>
+          </div>
+
+          <!-- Right: Order Summary -->
+          <div>
+            <div class="cart-summary">
+              <h3 style="margin-bottom:1.5rem;">Order Summary</h3>
+              <div id="checkoutItemList" style="margin-bottom:1rem; border-bottom:1px solid #eee; padding-bottom:1rem;"></div>
+              <div class="summary-row"><span>Subtotal</span><span id="coSubtotal">₹0</span></div>
+              <div class="summary-row"><span>Shipping</span><span style="color:var(--primary); font-weight:600;">Free</span></div>
+              <div class="summary-row total"><span>Total</span><span id="coTotal">₹0</span></div>
+              <div style="background:#e8f4f0; border-radius:var(--radius); padding:1rem; margin-top:1rem; text-align:center;">
+                <p style="color:var(--primary); font-size:0.85rem; font-weight:600; margin:0;">💚 100% of your payment goes directly to our programmes. Thank you!</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>Elevate Youth Foundation</h3>
+      <p>Empowering children. Building resilience. Delivering hope.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a><a href="shop.html">Shop</a><a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a><a href="un-info.html">UN Goals</a><a href="partners.html">Partners</a>
+      </div>
+      <hr class="footer-divider">
+      <p>&copy; 2026 Elevate Youth Foundation. All rights reserved.</p>
+      <p class="footer-credit">Michael Benjamin Nolan &nbsp;|&nbsp; CH.SC.U4CSE25028 &nbsp;|&nbsp; Amrita Vishwa Vidyapeetham</p>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+  <script>
+    /* ── State ── */
+    let selectedPayment = null;
+    let captchaAnswer   = 0;
+
+    /* ── Helper: check if cart has any physical merchandise ── */
+    function cartHasMerchandise() {
+      return cart.items.some(i => !i.id.startsWith('item_donation_'));
+    }
+
+    /* ── Init ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Redirect if not logged in
+      if (!localStorage.getItem('ey_loggedIn')) {
+        showToast('🔒 Please log in first!');
+        setTimeout(() => { window.location.href = 'login.html'; }, 1500);
+        return;
+      }
+
+      // Populate order summary
+      const total = cart.getTotalPrice();
+      const fmt   = v => '₹' + v.toLocaleString('en-IN', {minimumFractionDigits:2});
+
+      document.getElementById('checkoutTotalBtn').textContent = `(${fmt(total)})`;
+      document.getElementById('coSubtotal').textContent = fmt(total);
+      document.getElementById('coTotal').textContent    = fmt(total);
+
+      const listEl = document.getElementById('checkoutItemList');
+      if (cart.items.length === 0) {
+        listEl.innerHTML = '<p style="color:var(--light); font-size:0.9rem;">No items in cart.</p>';
+      } else {
+        listEl.innerHTML = cart.items.map(i => `
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.9rem;">
+            <span>${i.name} &times;${i.quantity}</span>
+            <strong>₹${(i.price * i.quantity).toLocaleString('en-IN')}</strong>
+          </div>`).join('');
+      }
+
+      // Hide "Pay on Delivery" and shipping section for donation-only carts
+      const hasMerchandise = cartHasMerchandise();
+      const podOption = document.querySelector('.payment-option[data-method="pod"]');
+      if (podOption && !hasMerchandise) {
+        podOption.style.display = 'none';
+      }
+
+      // Hide shipping section for donation-only carts
+      const shippingSection = document.getElementById('shippingSection');
+      if (shippingSection && !hasMerchandise) {
+        shippingSection.style.display = 'none';
+      }
+
+      generateCaptcha();
+    });
+
+    function generateCaptcha() {
+      const a = Math.floor(Math.random() * 12) + 1;
+      const b = Math.floor(Math.random() * 12) + 1;
+      captchaAnswer = a + b;
+      document.getElementById('captchaLabel').textContent = `What is ${a} + ${b}?`;
+      document.getElementById('captchaInput').value = '';
+    }
+
+    /* ── Payment Selection ── */
+    function selectPayment(el, method) {
+      document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedPayment = method;
+      document.getElementById('errPayment').classList.remove('show');
+
+      // Toggle field sections
+      document.getElementById('upiFields').classList.toggle('show', method === 'upi');
+      document.getElementById('cardFields').classList.toggle('show', method === 'card');
+      document.getElementById('podInfo').style.display = method === 'pod' ? 'block' : 'none';
+    }
+
+    /* ── Card Number Formatter ── */
+    document.addEventListener('input', function(e) {
+      if (e.target.id === 'cCard') {
+        let v = e.target.value.replace(/\D/g,'').substring(0,16);
+        e.target.value = v.replace(/(.{4})/g,'$1 ').trim();
+      }
+      if (e.target.id === 'cExp') {
+        let v = e.target.value.replace(/\D/g,'').substring(0,4);
+        if (v.length > 2) v = v.substring(0,2) + '/' + v.substring(2);
+        e.target.value = v;
+      }
+    });
+
+    /* ── Form Validation & Submit ── */
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+
+      const showErr = (id) => {
+        document.getElementById(id).classList.add('show');
+        valid = false;
+      };
+      const hideErr = (id) => document.getElementById(id).classList.remove('show');
+
+      // Clear all errors
+      document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+      document.querySelectorAll('.form-control').forEach(el => el.classList.remove('error-field'));
+
+      // Shipping (only validate if shipping section is visible)
+      if (document.getElementById('shippingSection').style.display !== 'none') {
+        if (!document.getElementById('shName').value.trim())      { document.getElementById('shName').classList.add('error-field'); showErr('errShName'); }
+        if (!/^\+?[\d\s\-]{10,}$/.test(document.getElementById('shPhone').value.trim()))  { document.getElementById('shPhone').classList.add('error-field'); showErr('errShPhone'); }
+        if (!/^\d{6}$/.test(document.getElementById('shPin').value.trim()))               { document.getElementById('shPin').classList.add('error-field'); showErr('errShPin'); }
+        if (document.getElementById('shAddress').value.trim().length < 10)                { document.getElementById('shAddress').classList.add('error-field'); showErr('errShAddress'); }
+      }
+
+      // Payment method
+      if (!selectedPayment) { showErr('errPayment'); }
+
+      // UPI validation
+      if (selectedPayment === 'upi') {
+        const upi = document.getElementById('upiId').value.trim();
+        if (!/^[\w.\-]+@[\w]+$/.test(upi)) { document.getElementById('upiId').classList.add('error-field'); showErr('errUpi'); }
+      }
+
+      // Card validation
+      if (selectedPayment === 'card') {
+        const cardNum = document.getElementById('cCard').value.replace(/\s/g,'');
+        if (cardNum.length !== 16) { document.getElementById('cCard').classList.add('error-field'); showErr('errCard'); }
+        if (!/^\d{2}\/\d{2}$/.test(document.getElementById('cExp').value)) { document.getElementById('cExp').classList.add('error-field'); showErr('errExp'); }
+        if (document.getElementById('cCvv').value.length < 3) { document.getElementById('cCvv').classList.add('error-field'); showErr('errCvv'); }
+        if (!document.getElementById('cName').value.trim()) { document.getElementById('cName').classList.add('error-field'); showErr('errCName'); }
+      }
+
+      // Captcha
+      const userAns = parseInt(document.getElementById('captchaInput').value.trim());
+      if (userAns !== captchaAnswer) {
+        document.getElementById('captchaInput').classList.add('error-field');
+        showErr('errCaptcha');
+        generateCaptcha();
+      }
+
+      if (valid) {
+        cart.clear();
+        window.location.href = 'payment-confirmed.html';
+      }
+    });
+  </script>
+</body>
+</html>

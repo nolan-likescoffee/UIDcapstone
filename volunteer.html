@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer | Elevate Youth Foundation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Smooth focus transitions for form fields */
+    .form-control {
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    .form-control:focus {
+      transform: translateY(-1px);
+    }
+    .vol-perk {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.07);
+      margin-bottom: 0.75rem;
+    }
+    .vol-perk-icon { font-size: 1.6rem; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" fill="#0F4C3A" stroke="#C9A84C" stroke-width="2"/>
+          <path d="M20 8 C20 8 10 14 10 22 C10 28 14.5 32 20 32 C25.5 32 30 28 30 22 C30 14 20 8 20 8Z" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <circle cx="20" cy="22" r="5" fill="#C9A84C"/>
+          <line x1="20" y1="8" x2="20" y2="17" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg>
+        Elevate<span>Youth</span>
+      </a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="events.html">Events</a>
+        <a href="volunteer.html" class="active">Volunteer</a>
+        <a href="shop.html">Shop</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-icon">🛒<span class="cart-count" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ Thank You Modal ════════════════════════════════ -->
+  <div class="modal-overlay" id="thankYouModal">
+    <div class="modal-box">
+      <div class="modal-icon">🌟</div>
+      <h2>Thank You, Hero!</h2>
+      <p style="color:var(--light); font-size:1rem; margin:0.75rem 0 1.5rem;">Your application has been received. Our team will reach out within 48 hours to welcome you into the Elevate Youth family. You are making a difference that truly matters.</p>
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+      <button onclick="document.getElementById('thankYouModal').classList.remove('active')" class="btn btn-outline" style="margin-top:0.75rem; width:100%;">Close</button>
+    </div>
+  </div>
+
+  <main class="main-content">
+
+    <section class="page-header">
+      <div class="container">
+        <a href="index.html" class="btn btn-outline-white btn-home">← Return to Home</a>
+        <h1>Become a Volunteer</h1>
+        <p>Your time, your compassion, your presence — these are the greatest gifts you can give a child. Join a community of changemakers today.</p>
+      </div>
+    </section>
+
+    <!-- Why Volunteer -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="grid grid-2" style="align-items:center; gap:3rem;">
+          <div class="slide-left">
+            <h2 style="text-align:left; color:white;">Why Give Your Time?</h2>
+            <p>Behind every statistic is a child who needed someone to show up. When you volunteer with us, you're not just filling a role — you're filling a heart. You become a lighthouse for children navigating stormy waters.</p>
+            <p style="font-style:italic; font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:rgba(255,255,255,0.9);">"The greatest gift is not money, but your presence and your care."</p>
+          </div>
+          <div class="slide-right" style="display:flex; flex-direction:column; gap:0.5rem;">
+            <div class="vol-perk">
+              <span class="vol-perk-icon">💡</span>
+              <div><strong style="color:white;">Meaningful Impact</strong><br><small>See the direct change you create in a child's life within weeks of joining.</small></div>
+            </div>
+            <div class="vol-perk">
+              <span class="vol-perk-icon">🎓</span>
+              <div><strong style="color:white;">Skills & Certification</strong><br><small>Gain a certified service certificate recognised by top institutions.</small></div>
+            </div>
+            <div class="vol-perk">
+              <span class="vol-perk-icon">🌍</span>
+              <div><strong style="color:white;">Global Community</strong><br><small>Join 500+ volunteers from across India and around the world.</small></div>
+            </div>
+            <div class="vol-perk">
+              <span class="vol-perk-icon">🌱</span>
+              <div><strong style="color:white;">Personal Growth</strong><br><small>Discover strengths you didn't know you had through service and connection.</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="section">
+      <div class="container">
+        <h2 class="fade-up">Apply to Volunteer</h2>
+        <p class="fade-up text-center" style="margin-bottom:3rem; max-width:600px; margin-left:auto; margin-right:auto;">We'd love to know more about you. Please fill in all your details below and we'll find the perfect role for your unique skills and heart.</p>
+
+        <div style="max-width:620px; margin:0 auto; background:white; padding:3rem; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg);" class="fade-up">
+          <form id="volunteerForm" novalidate>
+
+            <div class="form-group">
+              <label for="vName">Full Name <span style="color:#e74c3c;">*</span></label>
+              <input type="text" id="vName" class="form-control" placeholder="e.g. Priya Sharma" autocomplete="name">
+              <div class="error-msg" id="errName">Please enter your full name.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="vEmail">Email Address <span style="color:#e74c3c;">*</span></label>
+              <input type="email" id="vEmail" class="form-control" placeholder="you@example.com" autocomplete="email">
+              <div class="error-msg" id="errEmail">Please enter a valid email address.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="vPhone">Phone Number <span style="color:#e74c3c;">*</span></label>
+              <input type="tel" id="vPhone" class="form-control" placeholder="+91 98765 43210" autocomplete="tel">
+              <div class="error-msg" id="errPhone">Please enter a valid 10-digit phone number.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="vDob">Date of Birth <span style="color:#e74c3c;">*</span></label>
+              <input type="date" id="vDob" class="form-control">
+              <div class="error-msg" id="errDob">Please select your date of birth. (Must be 16+)</div>
+            </div>
+
+            <div class="form-group">
+              <label for="vAddress">Full Address <span style="color:#e74c3c;">*</span></label>
+              <textarea id="vAddress" class="form-control" rows="3" placeholder="123 Hope Street, Chennai, Tamil Nadu, 600001"></textarea>
+              <div class="error-msg" id="errAddress">Please enter your full address.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="vSkills">Skills &amp; Interests <span style="color:#e74c3c;">*</span></label>
+              <input type="text" id="vSkills" class="form-control" placeholder="e.g. Teaching, Web Design, Event Management, Cooking">
+              <div class="error-msg" id="errSkills">Please list at least one skill or interest.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="vAvail">Availability</label>
+              <select id="vAvail" class="form-control">
+                <option value="">— Select your availability —</option>
+                <option>Weekdays only</option>
+                <option>Weekends only</option>
+                <option>Both Weekdays &amp; Weekends</option>
+                <option>Flexible / Remote</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="vId">ID Proof (Aadhaar / Passport / Driving License) <span style="color:#e74c3c;">*</span></label>
+              <input type="file" id="vId" class="form-control" accept="image/*,.pdf">
+              <div class="error-msg" id="errId">Please upload a valid government-issued ID.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="vMotivation">Why do you want to volunteer? <span style="color:#e74c3c;">*</span></label>
+              <textarea id="vMotivation" class="form-control" rows="3" placeholder="Tell us what drives you to make a difference..."></textarea>
+              <div class="error-msg" id="errMotivation">Please share your motivation (min. 20 characters).</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; font-size:1.05rem; padding:1rem;">
+              Submit My Application 💚
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>Elevate Youth Foundation</h3>
+      <p>Empowering children. Building resilience. Delivering hope.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a><a href="shop.html">Shop</a><a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a><a href="un-info.html">UN Goals</a><a href="partners.html">Partners</a>
+      </div>
+      <hr class="footer-divider">
+      <p>&copy; 2026 Elevate Youth Foundation. All rights reserved.</p>
+      <p class="footer-credit">Michael Benjamin Nolan &nbsp;|&nbsp; CH.SC.U4CSE25028 &nbsp;|&nbsp; Amrita Vishwa Vidyapeetham</p>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+  <script>
+    /* ── Volunteer Form Validation ── */
+    document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+
+      const clearErrors = () => {
+        document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+        document.querySelectorAll('.form-control').forEach(el => el.classList.remove('error-field'));
+      };
+
+      const showError = (fieldId, errId) => {
+        const field = document.getElementById(fieldId);
+        const err   = document.getElementById(errId);
+        field.classList.add('error-field');
+        err.classList.add('show');
+        valid = false;
+        field.scrollIntoView({ behavior:'smooth', block:'center' });
+      };
+
+      clearErrors();
+
+      // Name: non-empty, at least 2 words
+      const name = document.getElementById('vName').value.trim();
+      if (name.split(' ').filter(w => w).length < 1) showError('vName','errName');
+
+      // Email
+      const email = document.getElementById('vEmail').value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) showError('vEmail','errEmail');
+
+      // Phone: 10 digits
+      const phone = document.getElementById('vPhone').value.replace(/\D/g,'');
+      if (phone.length < 10) showError('vPhone','errPhone');
+
+      // DOB: must be filled and age >= 16
+      const dobVal = document.getElementById('vDob').value;
+      if (!dobVal) {
+        showError('vDob','errDob');
+      } else {
+        const age = (new Date() - new Date(dobVal)) / (365.25 * 24 * 3600 * 1000);
+        if (age < 16) showError('vDob','errDob');
+      }
+
+      // Address
+      if (document.getElementById('vAddress').value.trim().length < 10) showError('vAddress','errAddress');
+
+      // Skills
+      if (document.getElementById('vSkills').value.trim().length < 3) showError('vSkills','errSkills');
+
+      // ID file
+      if (!document.getElementById('vId').value) showError('vId','errId');
+
+      // Motivation
+      if (document.getElementById('vMotivation').value.trim().length < 20) showError('vMotivation','errMotivation');
+
+      if (valid) {
+        this.reset();
+        document.getElementById('thankYouModal').classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

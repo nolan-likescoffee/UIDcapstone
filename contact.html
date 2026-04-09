@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Elevate Youth Foundation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #e8f4f0, #d4eddf);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" fill="#0F4C3A" stroke="#C9A84C" stroke-width="2"/>
+          <path d="M20 8 C20 8 10 14 10 22 C10 28 14.5 32 20 32 C25.5 32 30 28 30 22 C30 14 20 8 20 8Z" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <circle cx="20" cy="22" r="5" fill="#C9A84C"/>
+          <line x1="20" y1="8" x2="20" y2="17" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg>
+        Elevate<span>Youth</span>
+      </a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="shop.html">Shop</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="cart.html" class="cart-icon">🛒<span class="cart-count" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <section class="page-header">
+      <div class="container">
+        <a href="index.html" class="btn btn-outline-white btn-home">← Return to Home</a>
+        <h1>Get in Touch</h1>
+        <p>We'd love to hear from you. Whether it's a partnership, a query, or just a kind word — reach out!</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-2" style="background:white; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); overflow:hidden; gap:0;" class="fade-up">
+
+          <!-- Contact Form -->
+          <div style="padding:3rem;">
+            <h3 style="margin-bottom:0.5rem;">Send us a Message</h3>
+            <p style="font-size:0.9rem; margin-bottom:2rem;">We aim to respond within 1–2 business days.</p>
+            <form id="contactForm" novalidate onsubmit="handleContact(event)">
+              <div class="form-group">
+                <label for="cName">Your Name <span style="color:#e74c3c;">*</span></label>
+                <input type="text" id="cName" class="form-control" placeholder="Priya Sharma" required>
+                <div class="error-msg" id="errCName">Please enter your name.</div>
+              </div>
+              <div class="form-group">
+                <label for="cEmail">Email Address <span style="color:#e74c3c;">*</span></label>
+                <input type="email" id="cEmail" class="form-control" placeholder="you@example.com" required>
+                <div class="error-msg" id="errCEmail">Please enter a valid email address.</div>
+              </div>
+              <div class="form-group">
+                <label for="cSubject">Subject</label>
+                <select id="cSubject" class="form-control">
+                  <option>General Enquiry</option>
+                  <option>Partnership / Sponsorship</option>
+                  <option>Volunteer Enquiry</option>
+                  <option>Media / Press</option>
+                  <option>Donation Enquiry</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cMessage">Message <span style="color:#e74c3c;">*</span></label>
+                <textarea id="cMessage" class="form-control" rows="5" placeholder="Tell us how we can help or how you'd like to get involved..." required></textarea>
+                <div class="error-msg" id="errCMessage">Please enter a message (min. 10 characters).</div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;">Send Message 📩</button>
+              <div id="contactSuccess" style="display:none; margin-top:1rem; background:#e8f4f0; color:var(--primary); padding:1rem; border-radius:var(--radius); font-weight:600; text-align:center;">
+                ✅ Message sent! We'll be in touch soon. Thank you!
+              </div>
+            </form>
+          </div>
+
+          <!-- Contact Info + Map -->
+          <div style="background:#f7f5f0; display:flex; flex-direction:column;">
+            <div style="padding:3rem; flex:1;">
+              <h3 style="margin-bottom:1.5rem;">Contact Information</h3>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">🏛️</div>
+                <div>
+                  <strong>Campus Address</strong>
+                  <p style="margin:0.2rem 0 0; font-size:0.9rem;">
+                    Amrita Vishwa Vidyapeetham<br>
+                    Amrita School of Engineering, Chennai Campus<br>
+                    Veerapuram, Potheri, Chennai — 601 103<br>
+                    Tamil Nadu, India
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">📧</div>
+                <div>
+                  <strong>Email</strong>
+                  <p style="margin:0.2rem 0 0; font-size:0.9rem;">
+                    <a href="mailto:elevateyouth@ch.amrita.edu" style="color:var(--primary);">elevateyouth@ch.amrita.edu</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                  <strong>Phone</strong>
+                  <p style="margin:0.2rem 0 0; font-size:0.9rem;">+91 44 2476 8600</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">⏰</div>
+                <div>
+                  <strong>Office Hours</strong>
+                  <p style="margin:0.2rem 0 0; font-size:0.9rem;">Monday – Friday: 9:00 AM – 5:00 PM IST<br>Saturday: 10:00 AM – 1:00 PM IST</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">🌐</div>
+                <div>
+                  <strong>Institution</strong>
+                  <p style="margin:0.2rem 0 0; font-size:0.9rem;">
+                    <a href="https://www.amrita.edu" target="_blank" style="color:var(--primary);">www.amrita.edu</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Google Maps embed — Amrita Chennai Campus -->
+            <div style="height:250px; width:100%; overflow:hidden;">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0093657695!2d80.00853731466942!3d12.823447590954963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f5d5c5c5c5c5%3A0x1234567890abcdef!2sAmrita%20School%20of%20Engineering%2C%20Chennai!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+                width="100%" height="250"
+                style="border:0; display:block;"
+                allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>Elevate Youth Foundation</h3>
+      <p>Empowering children. Building resilience. Delivering hope.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a><a href="shop.html">Shop</a><a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a><a href="un-info.html">UN Goals</a><a href="partners.html">Partners</a>
+      </div>
+      <hr class="footer-divider">
+      <p>&copy; 2026 Elevate Youth Foundation. All rights reserved.</p>
+      <p class="footer-credit">Michael Benjamin Nolan &nbsp;|&nbsp; CH.SC.U4CSE25028 &nbsp;|&nbsp; Amrita Vishwa Vidyapeetham</p>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+  <script>
+    function handleContact(e) {
+      e.preventDefault();
+      let valid = true;
+      document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+      document.querySelectorAll('.form-control').forEach(el => el.classList.remove('error-field'));
+
+      const name = document.getElementById('cName').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const msg = document.getElementById('cMessage').value.trim();
+
+      if (name.length < 2) { document.getElementById('cName').classList.add('error-field'); document.getElementById('errCName').classList.add('show'); valid = false; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('cEmail').classList.add('error-field'); document.getElementById('errCEmail').classList.add('show'); valid = false; }
+      if (msg.length < 10) { document.getElementById('cMessage').classList.add('error-field'); document.getElementById('errCMessage').classList.add('show'); valid = false; }
+
+      if (valid) {
+        document.getElementById('contactSuccess').style.display = 'block';
+        document.getElementById('contactForm').reset();
+        setTimeout(() => { document.getElementById('contactSuccess').style.display = 'none'; }, 5000);
+      }
+    }
+  </script>
+</body>
+</html>

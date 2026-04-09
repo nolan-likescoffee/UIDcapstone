@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elevate Youth Foundation — Empowering the Future</title>
+  <meta name="description"
+    content="Empowering children from economically backward sections of society through education, resilience, and compassion.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ═══ Floating Side Decorators ══════════════════════ -->
+  <div class="float-left" aria-hidden="true">
+    <svg viewBox="0 0 80 400" xmlns="http://www.w3.org/2000/svg">
+      <text x="-320" y="20" transform="rotate(90)" font-size="13" font-family="Georgia,serif" fill="#0F4C3A"
+        letter-spacing="4">✦ EDUCATE ✦ EMPOWER ✦ ELEVATE ✦ EDUCATE ✦ EMPOWER ✦ ELEVATE ✦</text>
+    </svg>
+  </div>
+  <div class="float-right" aria-hidden="true">
+    <svg viewBox="0 0 80 400" xmlns="http://www.w3.org/2000/svg">
+      <text x="-320" y="20" transform="rotate(90)" font-size="13" font-family="Georgia,serif" fill="#0F4C3A"
+        letter-spacing="4">✦ HOPE ✦ RESILIENCE ✦ COMPASSION ✦ HOPE ✦ RESILIENCE ✦ COMPASSION ✦</text>
+    </svg>
+  </div>
+
+  <!-- ═══ Navigation ════════════════════════════════════ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- SVG NGO Logo -->
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" fill="#0F4C3A" stroke="#C9A84C" stroke-width="2" />
+          <path d="M20 8 C20 8 10 14 10 22 C10 28 14.5 32 20 32 C25.5 32 30 28 30 22 C30 14 20 8 20 8Z" fill="none"
+            stroke="#C9A84C" stroke-width="1.5" />
+          <circle cx="20" cy="22" r="5" fill="#C9A84C" />
+          <line x1="20" y1="8" x2="20" y2="17" stroke="#C9A84C" stroke-width="1.5" />
+        </svg>
+        Elevate<span>Youth</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="shop.html">Shop</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-icon">🛒<span class="cart-count" id="cart-count">0</span></a>
+        <a href="login.html" class="btn btn-primary" style="padding:0.45rem 1.1rem;font-size:0.85rem;"
+          id="loginBtn">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- ═══ Hero ══════════════════════════════════════════ -->
+    <section class="hero">
+      <div class="container">
+        <h1>Empowering the<br><em>Brightest Futures</em></h1>
+        <p>We build resilience and deliver hope for children from underserved communities. Together, we can rewrite
+          tomorrow — one child at a time.</p>
+        <div class="hero-btns flex-center gap-1 flex-wrap">
+          <a href="donate.html" class="btn btn-accent btn-wide">💛 Donate Now</a>
+          <a href="volunteer.html" class="btn btn-outline-white btn-wide">Join as Volunteer</a>
+        </div>
+        <!-- Awareness Video -->
+        <div class="hero-video-wrap">
+          <video controls style="width: 100%; height: auto; display: block; background: #000; object-fit: cover;">
+            <source src="From Self-Centered to Society-Centered - From Amma's Heart S4 E 46 - Amma (1080p, h264).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Impact Stats ══════════════════════════════════ -->
+    <section class="section" style="padding:3rem 0;">
+      <div class="container">
+        <div class="stat-bar">
+          <div class="stat-item fade-up">
+            <div class="stat-number">10K+</div>
+            <div class="stat-label">Children Educated</div>
+          </div>
+          <div class="stat-item fade-up delay-1">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Learning Centres</div>
+          </div>
+          <div class="stat-item fade-up delay-2">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Active Volunteers</div>
+          </div>
+          <div class="stat-item fade-up delay-3">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Donation Transparency</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Mission Quote + Impact ════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-2" style="align-items:center; gap:3rem;">
+          <!-- Left slide-in -->
+          <div class="slide-left">
+            <h2 style="text-align:left; margin-bottom:1rem;">The Power of<br><em>Education</em></h2>
+            <p
+              style="font-size:1.05rem; color:var(--mid); font-style:italic; border-left:4px solid var(--accent); padding-left:1rem; margin-bottom:1.5rem;">
+              "Education is the most powerful weapon which you can use to change the world."
+              <strong>— Nelson Mandela</strong>
+            </p>
+            <p>Every child deserves the right to learn, to dream, and to contribute to society. At Elevate Youth
+              Foundation, we make that a reality by providing access to essential resources and mentorship.</p>
+            <a href="about.html" class="btn btn-outline mt-1">Learn More About Us →</a>
+          </div>
+          <!-- Right slide-in -->
+          <div class="slide-right">
+            <div
+              style="background:linear-gradient(135deg,#e8f4f0,#f0f9f5); padding:2.5rem; border-radius:var(--radius-lg); border-left:5px solid var(--accent);">
+              <h3 style="color:var(--primary); margin-bottom:1.2rem;">Our Impact Highlights</h3>
+              <ul style="color:var(--mid); line-height:2.2; font-size:0.97rem;">
+                <li>✔ Over 10,000 children educated and mentored</li>
+                <li>✔ 50+ active community learning centres</li>
+                <li>✔ Thousands of global volunteers mobilised</li>
+                <li>✔ 100% transparent donation tracking system</li>
+                <li>✔ Aligned with 3 UN Sustainable Dev. Goals</li>
+                <li>✔ Active in 12+ cities across India</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Testimonials ══════════════════════════════════ -->
+    <section class="section" style="background:white;">
+      <div class="container">
+        <h2 class="fade-up">What Leaders Say</h2>
+        <p class="fade-up" style="text-align:center; margin-bottom:3rem;">Words of encouragement from global
+          changemakers who believe in our mission.</p>
+        <div class="grid grid-3">
+          <div class="testimonial-card slide-left">
+            <p>"The work Elevate Youth Foundation does is nothing short of miraculous. They are building the leaders of
+              tomorrow, with care and conviction."</p>
+            <div class="testimonial-author">— Malala Yousafzai, Nobel Peace Laureate</div>
+          </div>
+          <div class="testimonial-card fade-up delay-1">
+            <p>"Resilience and empathy are at the core of their mission. A truly transparent and deeply effective
+              organisation changing lives every day."</p>
+            <div class="testimonial-author">— Bill Gates, Philanthropist</div>
+          </div>
+          <div class="testimonial-card slide-right delay-2">
+            <p>"Supporting Elevate Youth means investing directly into the future of humanity. Their grassroots work is
+              transformational."</p>
+            <div class="testimonial-author">— Kailash Satyarthi, Nobel Peace Laureate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA Banner ════════════════════════════════════ -->
+    <section class="section section-dark fade-up">
+      <div class="container text-center">
+        <h2 style="margin-bottom:1rem;">Ready to Make a Difference?</h2>
+        <p style="max-width:600px; margin:0 auto 2rem;">Every rupee you give, every hour you volunteer — it changes a
+          child's destiny forever. Join thousands who have already said <em>"Yes"</em> to hope.</p>
+        <div class="flex-center gap-1 flex-wrap">
+          <a href="donate.html" class="btn btn-accent btn-wide">💛 Donate Today</a>
+          <a href="events.html" class="btn btn-outline-white btn-wide">Explore Events</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ Footer ════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <h3>Elevate Youth Foundation</h3>
+      <p>Empowering children. Building resilience. Delivering hope.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="volunteer.html">Volunteer</a>
+        <a href="shop.html">Shop</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
+        <a href="un-info.html">UN Goals</a>
+        <a href="partners.html">Partners</a>
+      </div>
+      <hr class="footer-divider">
+      <p>&copy; 2026 Elevate Youth Foundation. All rights reserved.</p>
+      <p class="footer-credit">Michael Benjamin Nolan &nbsp;|&nbsp; CH.SC.U4CSE25028 &nbsp;|&nbsp; Amrita Vishwa
+        Vidyapeetham</p>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // Update login button text based on state
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('loginBtn');
+      if (btn && localStorage.getItem('ey_loggedIn')) {
+        btn.textContent = 'Logout';
+        btn.href = '#';
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('ey_loggedIn');
+          showToast('👋 Logged out successfully!');
+          setTimeout(() => location.reload(), 1000);
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
